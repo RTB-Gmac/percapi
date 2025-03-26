@@ -26,6 +26,18 @@ to run test from per-capi-container call:
 pytest ./poc/tests.py -s
 ```
 look for **"Performance: XXXXX [docs / sec.]"** at commandline after tests.
+```commandline
+=================================================================================================== test session starts 
+platform linux -- Python 3.11.8, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/gmaciaszek/Documents/RTB_GH_Repos/percapi
+plugins: anyio-4.9.0
+collected 11 items                                                                                       
+
+poc/tests.py ..........
+Performance: 10058 [docs / sec.]
+.
+==================================================================================================== 11 passed in 1.33s
+```
 
 ### build docker image
 to build docker call:

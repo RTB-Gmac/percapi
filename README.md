@@ -1,5 +1,5 @@
 # percapi
-A minimal (24 lines of code in the `perc.py` source) implementation of the document percolation functionality for keyword labelling written in python.
+A minimal (50 lines of code in the `perc.py` source) implementation of the document percolation functionality for keyword labelling written in python.
 
 Just run test `test_percolation_performance()` and check performance.
 

@@ -11,7 +11,8 @@ Solution is:
 * **supports minimum_match functionality**
 * **single threaded**
 * **lightweight (docker container take ~35MB without any queries, ~140MB with 5k queries)**
-* **efficient (~9.4k-10.4k [documents per second] with 10k queries in index where query has 120 terms an average)**
+* **efficient (~1.2k [documents per second] with 10k queries in index where query has 120 terms an average)**
+* **real case scenario with documents from GBQ and queries from CAI --> ~350 docs / sec.**
 
 
 ### install dependencies
@@ -25,7 +26,7 @@ to run test from per-capi-container call:
 ```commandline
 pytest ./poc/tests.py -s
 ```
-look for **"Performance: XXXXX [docs / sec.]"** at commandline after tests.
+look for **"Performance: XXXX [docs / sec.]"** at commandline after tests.
 ```commandline
 =================================================================================================== test session starts 
 platform linux -- Python 3.11.8, pytest-8.3.5, pluggy-1.5.0
@@ -33,9 +34,10 @@ rootdir: /home/gmaciaszek/Documents/RTB_GH_Repos/percapi
 plugins: anyio-4.9.0
 collected 11 items                                                                                       
 
-poc/tests.py ..........
-Performance: 10058 [docs / sec.]
+poc/tests.py ..............
+Performance: 1184 [docs / sec.]
 .
+
 ==================================================================================================== 11 passed in 1.33s
 ```
 
@@ -79,7 +81,8 @@ Adds a new query to the Percolator.
 {
   "query": ["example", "text"],
   "category": "news",
-  "minimum_match": 1
+  "minimum_match": 1,
+  "unique_term_count": true
 }
 ```
 

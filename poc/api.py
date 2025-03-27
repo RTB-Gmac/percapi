@@ -6,6 +6,7 @@ class QueryRequest(BaseModel):
     query: list[str]
     category: str
     minimum_match: int
+    unique_term_count: bool
 
 class DocumentRequest(BaseModel):
     document: str
@@ -15,7 +16,7 @@ percolator = Percolator()
 
 @app.post("/add_query")
 def add_query(request: QueryRequest):
-    percolator.add_query(request.query, request.category, request.minimum_match)
+    percolator.add_query(request.query, request.category, request.minimum_match, request.unique_term_count)
     return {"message": "Query added successfully"}
 
 @app.post("/percolate")
